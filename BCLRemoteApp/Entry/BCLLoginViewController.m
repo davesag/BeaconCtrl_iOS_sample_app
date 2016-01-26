@@ -150,7 +150,7 @@
 
 - (IBAction)forgotPasswordButtonAction:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://admin.beaconctrl.com/admins/password/new"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://pn-beacon-test.ngrok.com/admins/password/new"]];
 }
 
 

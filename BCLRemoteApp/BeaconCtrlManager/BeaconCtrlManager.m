@@ -27,6 +27,15 @@ NSString * const BeaconManagerFirmwareUpdateDidStartNotification = @"BeaconManag
 NSString * const BeaconManagerFirmwareUpdateDidProgressNotification = @"BeaconManagerFirmwareUpdateDidProgresstNotification";
 NSString * const BeaconManagerFirmwareUpdateDidFinishNotification = @"BeaconManagerFirmwareUpdateDidFinishNotification";
 
+// Test local API App credentials:
+// UID:    eb3b5a29d2ae86a90ff4dce44da9725c0a91e40b95a180460a9355124844e08c
+// Secret: ea41a5f1551c2ab992a21dc00cb6b0b9f3aaa4b0976bcee25a4f0ccf3d1c9d02
+// Test local API S2S API App credentials:
+// UID:    c450dcc61b722175e49e2750d5e872eb7c9dc40e67f88ab78aca32b9cc15c020
+NSString * const API_SERVER_UUID = @"c450dcc61b722175e49e2750d5e872eb7c9dc40e67f88ab78aca32b9cc15c020";
+// Secret: 1fd6ef3a820532440b912032c3936c2e1c3ba3271e163c48ae36fe2d506661e1
+NSString * const API_SERVER_SECRET = @"1fd6ef3a820532440b912032c3936c2e1c3ba3271e163c48ae36fe2d506661e1";
+
 @interface BeaconCtrlManager () <BCLBeaconCtrlDelegate>
 
 @property (nonatomic, copy) NSString *pushNotificationDeviceToken;
@@ -76,7 +85,7 @@ NSString * const BeaconManagerFirmwareUpdateDidFinishNotification = @"BeaconMana
 
 - (void)setupForExistingAdminUserWithEmail:(NSString *)email password:(NSString *)password completion:(void (^)(BOOL, NSError *))completion
 {
-    self.beaconCtrlAdmin = [BCLBeaconCtrlAdmin beaconCtrlAdminWithCliendId:@"76b8780413c3902d76ae7a05b9a17dcb04ed0696147696d3b4ff3302269efc32" clientSecret:@"55f560c85ce5e645c928eb72537a1183b87b947d9d4129a8786c10f6bff3613b"];
+    self.beaconCtrlAdmin = [BCLBeaconCtrlAdmin beaconCtrlAdminWithCliendId:API_SERVER_UUID clientSecret:API_SERVER_SECRET];
     
     __weak typeof(self) weakSelf = self;
     
@@ -94,7 +103,7 @@ NSString * const BeaconManagerFirmwareUpdateDidFinishNotification = @"BeaconMana
 
 - (void)setupForNewAdminUserWithEmail:(NSString *)email password:(NSString *)password passwordConfirmation:(NSString *)passwordConfirmation completion:(void (^)(BOOL, NSError *))completion
 {
-    self.beaconCtrlAdmin = [BCLBeaconCtrlAdmin beaconCtrlAdminWithCliendId:@"76b8780413c3902d76ae7a05b9a17dcb04ed0696147696d3b4ff3302269efc32" clientSecret:@"55f560c85ce5e645c928eb72537a1183b87b947d9d4129a8786c10f6bff3613b"];
+    self.beaconCtrlAdmin = [BCLBeaconCtrlAdmin beaconCtrlAdminWithCliendId:API_SERVER_UUID clientSecret:API_SERVER_SECRET];
     
     __weak typeof(self) weakSelf = self;
     
